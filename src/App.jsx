@@ -38,20 +38,22 @@ function App() {
       <div className="title">
         <h1>VideoGameDash</h1>
       </div>
-      <SidebarNav />
+      <div className="main">
+        <SidebarNav />
+        
+        <div className="content">
+          {loading ? (
+            <p>Loading games...</p>
+          ) : (
+            <StatsCards
+              totalGames={totalGames}
+              avgRating={avgRating}
+              recentGames={recentGames}
+            />
+          )}
 
-      <div className="content">
-        {loading ? (
-          <p>Loading games...</p>
-        ) : (
-          <StatsCards
-            totalGames={totalGames}
-            avgRating={avgRating}
-            recentGames={recentGames}
-          />
-        )}
-
-        {/* SearchBar n GameList */}
+          {/* SearchBar n GameList */}
+        </div>
       </div>
     </div>
   );
