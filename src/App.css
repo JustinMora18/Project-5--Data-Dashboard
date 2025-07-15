@@ -1,0 +1,76 @@
+:root {
+  --font-primary: 'Poppins', sans-serif;
+
+  --color-bg: #1a1a1a;
+  --color-primary: #6a3ee495;
+  --color-primary-dark: #920c0c;
+  --color-white: #fffef9;
+
+  --font-size-title: 2.5rem;
+  --font-size-button: 30px;
+
+  --border-radius: 30px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: var( --color-bg);
+  color: var(--color-text);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+}
+
+.title{
+position: fixed;
+top: 2rem;
+left: 2rem;
+color: var(--color-white);
+font-size: var(--font-size-title);
+}
+
+.sidebar {
+  width: 200px;
+  background-color: var(--color-primary);
+  color: white;
+  height: 80vh;
+  padding: 1.5rem;
+  margin-left: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.stats-cards {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.card {
+  background-color: #292929;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  width: 150px;
+  text-align: center;
+}
