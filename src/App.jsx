@@ -4,6 +4,7 @@ import SidebarNav from "./components/SidebarNav";
 import StatsCards from "./components/StatsCards";
 import SearchFilter from "./components/SearchFilter";
 import GameList from "./components/GameList";
+import GameDetail from "./components/GameDetail";
 import axios from "axios";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   const [selectedPlatform, setSelectedPlatform] = useState("All");
   const [minRating, setMinRating] = useState(0);
   const [releaseYear, setReleaseYear] = useState("All");
-
+  const [selectedGame, setSelectedGame] = useState(null);
 
   const API_KEY = "209d03baba2d468e9cba966a927ad289";
 
@@ -44,23 +45,23 @@ function App() {
     const matchesSearch = game.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
-  
+
     const matchesPlatform =
       selectedPlatform === "All" ||
-      game.platforms.some((p) =>
+      game.platforms?.some((p) =>
         p.platform.name.toLowerCase().includes(selectedPlatform.toLowerCase())
       );
-  
+
     const matchesRating = game.rating >= minRating;
-  
+
     const matchesRelease =
       releaseYear === "All" ||
       parseInt(game.released?.substring(0, 4)) >= parseInt(releaseYear);
-  
+
     return (
       matchesSearch && matchesPlatform && matchesRating && matchesRelease
     );
-  });  
+  });
 
   return (
     <div className="App">
@@ -87,16 +88,19 @@ function App() {
                   releaseYear={releaseYear}
                   setReleaseYear={setReleaseYear}
                 />
-
-
                 <StatsCards
                   totalGames={totalGames}
                   avgRating={avgRating}
                   recentGames={recentGames}
                 />
               </div>
-          
-              <GameList games={filteredGames} />
+
+              {/* to show the info */}
+              {selectedGame ? (
+                <GameDetail game={selectedGame} onClose={() => setSelectedGame(null)} />
+              ) : (
+                <GameList games={filteredGames} onSelectGame={setSelectedGame} />
+              )}
             </>
           )}
         </div>
