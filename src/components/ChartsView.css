@@ -1,0 +1,22 @@
+.charts-view {
+    margin-top: 2rem;
+}
+
+.charts-view h2{
+    font-size: 3rem;
+    font-weight: 900;
+    margin-left: 2rem;
+}
+
+.chart-section {
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0 2rem 1.5rem 2rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.chart-section h3{
+    color: #efe8e6;
+    font-size: 30px;
+    margin: 1.5rem 2.5rem;
+}

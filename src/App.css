@@ -9,7 +9,7 @@
   --color-forHover: #a6ff00;
 
   --font-size-title: 4rem;
-  --font-size-button: 30px;
+  --font-size-other: 30px;
 
   --border-radius: 30px;
 }
@@ -33,8 +33,8 @@ body, html {
 .title {
 font-family: var(--font-primary);
 color: var(--color-black);
-font-size: var(--font-size-title);
-font-weight:bolder;
+font-size: var(--font-size-other);
+font-weight: 900;
 text-transform: uppercase;
 margin-left: 1.5rem;
 }
@@ -98,7 +98,6 @@ margin-left: 1.5rem;
 .card {
   background-color: var(--color-black);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--color-white);
   padding: 1rem;
   text-align: center;
@@ -181,6 +180,12 @@ margin-left: 1.5rem;
   cursor: pointer;
 }
 
+.data-summary{
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 1rem;
+}
+
 .game-list {
   display: flex;
   flex-wrap: wrap;
@@ -232,4 +237,36 @@ margin-left: 1.5rem;
   padding: 2rem;
   border-radius: 1.5rem;
   color: white;
+}
+
+.game-detail-container h2 {
+font-size: 4rem;
+}
+
+.game-detail-container img {
+  width: 50%;
+}
+
+.game-detail-container p{
+  font-size: var(--font-size-other);
+}
+
+.loading-msg {
+  color: var(--color-black);
+  font-family: var(--font-primary);
+  font-weight: bolder;
+  font-size: 250px;
+  line-height: 13rem ; 
+  padding: 5rem;
+}
+
+.toggle-chart-btn{
+margin-left: 1.5rem;
+padding: 0.5rem 1rem;
+background: #222;
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 1.5rem;
 }

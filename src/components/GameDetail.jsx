@@ -21,7 +21,7 @@ function GameDetail({ game, onClose }) {
     };
     fetchGameDetails();
     }, [game.id]);
-    if (loading || !detailedGame) return <p>Loading game details...</p>;
+    if (loading || !detailedGame) return <p className="loading-msg">Loading game details...</p>;
     return (
     <div className="game-detail-container">
         <button onClick={onClose} className="back-button">← Back to game list</button>

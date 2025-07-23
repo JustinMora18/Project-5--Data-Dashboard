@@ -5,6 +5,7 @@ import StatsCards from "./components/StatsCards";
 import SearchFilter from "./components/SearchFilter";
 import GameList from "./components/GameList";
 import GameDetail from "./components/GameDetail";
+import ChartsView from "./components/ChartsView";
 import axios from "axios";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [minRating, setMinRating] = useState(0);
   const [releaseYear, setReleaseYear] = useState("All");
   const [selectedGame, setSelectedGame] = useState(null);
+  const [showCharts, setShowCharts] = useState(false);
 
   const API_KEY = "209d03baba2d468e9cba966a927ad289";
 
@@ -88,18 +90,50 @@ function App() {
                   releaseYear={releaseYear}
                   setReleaseYear={setReleaseYear}
                 />
+
                 <StatsCards
                   totalGames={totalGames}
                   avgRating={avgRating}
                   recentGames={recentGames}
                 />
+
+                {/* to hide data summary */}
+                {!selectedGame && (
+                  <div>
+                    <p className="data-summary">
+                      {recentGames > totalGames / 2
+                        ? "Most games are from after 2010."
+                        : "Many games are from before 2010."}{" "}
+                      The average rating is {avgRating.toFixed(2)}.
+                    </p>
+                  </div>
+                )}
               </div>
+
+              {/* buttom to show graphs */}
+              {!selectedGame && (
+                <button
+                  className="toggle-chart-btn"
+                  onClick={() => setShowCharts(!showCharts)}
+                >
+                  {showCharts ? "Hide Charts" : "Show Charts"}
+                </button>
+              )}
 
               {/* to show the info */}
               {selectedGame ? (
-                <GameDetail game={selectedGame} onClose={() => setSelectedGame(null)} />
+                <GameDetail
+                  game={selectedGame}
+                  onClose={() => setSelectedGame(null)}
+                />
               ) : (
-                <GameList games={filteredGames} onSelectGame={setSelectedGame} />
+                <>
+                  {showCharts && <ChartsView games={filteredGames} />}
+                  <GameList
+                    games={filteredGames}
+                    onSelectGame={setSelectedGame}
+                  />
+                </>
               )}
             </>
           )}
