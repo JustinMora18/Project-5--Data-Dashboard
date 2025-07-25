@@ -3,9 +3,11 @@
 }
 
 .charts-view h2{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     margin-left: 2rem;
+    margin-bottom: .5rem;
+    color: aliceblue;
 }
 
 .chart-section {
@@ -17,6 +19,13 @@
 
 .chart-section h3{
     color: #efe8e6;
+    font-size: 50px;
+    margin: .5rem 2rem;
+}
+
+.chart-description{
     font-size: 30px;
+    color: #efe8e6;
     margin: 1.5rem 2.5rem;
 }
+

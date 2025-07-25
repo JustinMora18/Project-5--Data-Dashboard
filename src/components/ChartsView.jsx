@@ -36,21 +36,27 @@ const genreData = Object.entries(genreCounts).map(([name, count]) => ({
 return (
     <div className="charts-view">
         <h2>Game Data Visualizations</h2>
-
         <div className="chart-section">
             <h3>🎯 Top 5 Rated Games</h3>
+            <p className="chart-description">
+                This chart shows the highest-rated games in the dataset. These games consistently received ratings above 4.5 and are considered the most critically acclaimed.
+            </p>
             <ResponsiveContainer width="100%" height={300}>
             <BarChart data={topGames}>
             <XAxis dataKey="name" tick={{ fontSize: 12 }} interval={0} angle={-15} textAnchor="end" />
             <YAxis domain={[0, 5]} />
             <Tooltip />
-            <Bar dataKey="rating" fill="#8884d8" radius={[5, 5, 0, 0]} />
+            <Bar dataKey="rating" fill="#7d76ff" radius={[5, 5, 0, 0]} />
             </BarChart>
             </ResponsiveContainer>
         </div>
 
         <div className="chart-section">
             <h3>🧬 Genre Distribution</h3>
+            <p className="chart-description">
+                This pie chart reveals the distribution of game genres. It helps understand which types of games dominate the selection (e.g., Action, RPG, Sports).
+
+            </p>
             <ResponsiveContainer width="100%" height={300}>
             <PieChart>
                 <Pie
